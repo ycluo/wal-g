@@ -1,0 +1,3 @@
+[submodule "submodules/wal-g"]
+	path = submodules/wal-g
+	url = https://github.com/wal-g/wal-g.git
