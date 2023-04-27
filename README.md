@@ -30,6 +30,26 @@ git pull --recurse-submodules <branch>
 git clone --recurse-submodules <remote_url>
 ```
 
+## Build Docker Image
+
+> - `docker build -t wal-g-mongo -f ./build/package/Dockerfile . --no-cache`
+> - `docker save -o wal-g-mongo.tar wal-g-mongo`
+> - `docker load -i wal-g-mongo.tar`
+
+### split large tar into multiple files (25MB)
+
+```bash
+ls -lh images.tar.gz
+split -b 25000000 images.tar.gz img.part
+ls -lh img.*
+```
+
+### How to Join Tar Files After Splitting
+
+```bash
+cat img.part* | tar xzvf -
+```
+
 ## Reference
 
 > - [wal-g github](https://github.com/wal-g/wal-g)
